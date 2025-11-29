@@ -20,6 +20,12 @@ const COLORS = [
   "#ff8a65",
   "#a1887f",
 ];
+const EMOJIS = [
+  "🐶", "🌸", "🍎", "🐱",
+  "🌼", "🍌", "🐰", "🍓",
+  "🐻", "🌹", "🍇", "🐼",
+  "🌻", "🍒", "🐸", "🍍",
+];
 
 export default function ColorMemoryFlip() {
   const [cards, setCards] = useState<string[]>([]);
@@ -101,10 +107,20 @@ export default function ColorMemoryFlip() {
             className="w-16 h-16 rounded-md cursor-pointer transition-transform duration-200"
             style={{
               backgroundColor: flipped.includes(idx) || matched[idx] ? color : "#cccccc",
+              border: "2px solid #000",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
               transform: flipped.includes(idx) || matched[idx] ? "rotateY(0)" : "rotateY(180deg)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "1.5rem",
             }}
             onClick={() => handleClick(idx)}
-          />
+          >
+            {(flipped.includes(idx) || matched[idx]) && (
+              <span>{EMOJIS[idx]}</span>
+            )}
+          </div>
         ))}
       </div>
       {gameOver && (
