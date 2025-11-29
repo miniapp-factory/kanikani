@@ -122,7 +122,7 @@ export default function ColorMemoryFlip() {
             onClick={() => handleClick(idx)}
           >
             {(flipped.includes(idx) || matched[idx]) && (
-              <span>{COLOR_EMOJI_MAP[color]}</span>
+              <span>{COLOR_EMOJI_MAP[color as keyof typeof COLOR_EMOJI_MAP]}</span>
             )}
           </div>
         ))}
