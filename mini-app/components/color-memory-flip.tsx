@@ -20,16 +20,16 @@ const COLORS = [
   "#4fc3f7",
   "#4dd0e1",
 ];
-const EMOJIS = [
-  "🐶", "🐶",
-  "🌸", "🌸",
-  "🍎", "🍎",
-  "🐱", "🐱",
-  "🌼", "🌼",
-  "🍌", "🍌",
-  "🐰", "🐰",
-  "🍓", "🍓",
-];
+const COLOR_EMOJI_MAP = {
+  "#e57373": "🐶",
+  "#f06292": "🌸",
+  "#ba68c8": "🍎",
+  "#9575cd": "🐱",
+  "#7986cb": "🌼",
+  "#64b5f6": "🍌",
+  "#4fc3f7": "🐰",
+  "#4dd0e1": "🍓",
+};
 
 export default function ColorMemoryFlip() {
   const [cards, setCards] = useState<string[]>([]);
@@ -122,7 +122,7 @@ export default function ColorMemoryFlip() {
             onClick={() => handleClick(idx)}
           >
             {(flipped.includes(idx) || matched[idx]) && (
-              <span>{EMOJIS[idx]}</span>
+              <span>{COLOR_EMOJI_MAP[color]}</span>
             )}
           </div>
         ))}
